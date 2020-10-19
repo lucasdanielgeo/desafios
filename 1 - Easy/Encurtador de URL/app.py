@@ -19,10 +19,9 @@ def datetime_creation():
     return datetime.datetime.utcnow
 
 def url_factory(url):
-    UrlShortner.url = url
-    UrlShortner.url_random_hash = url_random_hash_generator()
-    UrlShortner.short_url = 'localhost:5000' + '/' + UrlShortner.url_random_hash
-    UrlShortner.time_created = datetime.datetime.utcnow()
+    url_random_hash = url_random_hash_generator()
+    short_url = 'localhost:5000' + '/' + url_random_hash
+    time_created = datetime.datetime.utcnow()
     #rlShortner.expiration_date = expiration_date
     return UrlShortner(url, url_random_hash, short_url, time_created)
 
