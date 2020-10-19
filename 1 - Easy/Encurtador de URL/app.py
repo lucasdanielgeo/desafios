@@ -4,8 +4,11 @@ import string
 from random import choice
 
 class UrlShortner:
-    def __init__(self, url):
+    def __init__(self, url, url_random_hash, short_url, time_created):
         self.url = url
+        self.url_random_hash = url_random_hash
+        self.short_url = short_url
+        self.time_created = time_created
 
 def url_random_hash_generator( 
     size=6, 
@@ -21,15 +24,7 @@ def url_factory(url):
     UrlShortner.short_url = 'localhost:5000' + '/' + UrlShortner.url_random_hash
     UrlShortner.time_created = datetime.datetime.utcnow()
     #rlShortner.expiration_date = expiration_date
-    return UrlShortner(url)
-
-# url1 = url_factory('google.com/')
-
-# print (f'''
-# {url1.url}, 
-# {url1.url_random_hash}, 
-# {url1.short_url}, 
-# {url1.time_created}''')
+    return UrlShortner(url, url_random_hash, short_url, time_created)
 
 print('URL shortner')
 url1 = url_factory(input('Input your URL: '))
